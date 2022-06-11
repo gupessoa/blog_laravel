@@ -16,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/home', function () {
+    return view('home');
+})->name('blog.home');
+Route::get('/contato', function () {
+    return view('blog.contato');
+})->name('blog.contato');
+Route::get('/escritores', function () {
+    return view('blog.escritores');
+})->name('blog.escritores');
 
 require __DIR__.'/auth.php';

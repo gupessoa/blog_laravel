@@ -361,7 +361,6 @@ footer p{
     background-color: #f44336;
     display: inline-block;
     align-self: center;
-    margin: 5px;
     width: 100%;
 }
 .writerDesc{
@@ -380,7 +379,6 @@ footer p{
 .writerDesc p{
     margin-top: 30px;
     text-align: justify;
-    padding-right: 30px;
     font-family: 'Montserrat', sans-serif;
 }
 /* Contact Page */
@@ -391,7 +389,6 @@ div.contact{
     margin-bottom: 30px;
 }
 fieldset.contactForm{
-    display: flex;
     border: 0.5px solid lightgrey;
 }
 fieldset.contactForm legend{
@@ -497,9 +494,7 @@ fieldset.contactForm legend{
 
 @-moz-document url-prefix(){
     fieldset.contactForm {
-        display: flex;
         flex-direction: column;
-        display: flex;
         border: 0.5px solid lightgrey;
     }
     fieldset.contactForm legend {

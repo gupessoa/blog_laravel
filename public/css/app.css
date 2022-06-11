@@ -746,6 +746,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -760,6 +764,9 @@ select {
 }
 .mt-3 {
   margin-top: 0.75rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
 }
 .mb-4 {
   margin-bottom: 1rem;
@@ -1607,6 +1614,9 @@ footer p{
 .writers{
     flex-direction: column;
 }
+.writers:last-child{
+    margin-bottom: 30px;
+}
 .writersList{
     margin:30px 0 0 0;
 }
@@ -1617,7 +1627,6 @@ footer p{
     background-color: #f44336;
     display: inline-block;
     align-self: center;
-    margin: 5px;
     width: 100%;
 }
 .writerDesc{
@@ -1636,7 +1645,6 @@ footer p{
 .writerDesc p{
     margin-top: 30px;
     text-align: justify;
-    padding-right: 30px;
     font-family: 'Montserrat', sans-serif;
 }
 /* Contact Page */
@@ -1647,7 +1655,6 @@ div.contact{
     margin-bottom: 30px;
 }
 fieldset.contactForm{
-    display: flex;
     border: 0.5px solid lightgrey;
 }
 fieldset.contactForm legend{
@@ -1752,7 +1759,6 @@ fieldset.contactForm legend{
 @-moz-document url-prefix(){
     fieldset.contactForm {
         flex-direction: column;
-        display: flex;
         border: 0.5px solid lightgrey;
     }
     fieldset.contactForm legend {
