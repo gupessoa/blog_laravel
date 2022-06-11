@@ -1,3 +1,512 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fontes Adicionais */
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+/* Estilos gerais */
+/*body{*/
+/*    background: url('img/bg.png') repeat;*/
+/*}*/
+input, textarea{
+    font-size:16px;
+    border-style:solid;
+    padding:5px;
+    border-width:1px;
+    background-color:#ffffff;
+    border-color:#a6a4a6;
+    font-family:sans-serif;
+    display: block;
+}
+input:focus {
+    outline:none;
+    box-shadow: 0px 0px 3px 0px rgba(0, 119, 255, 0.5);
+}
+.warning{
+    color: red;
+    margin: 5px;
+}
+section img{
+    border: 1px solid gray;
+    padding: 10px;
+    background-color: white;
+}
+section div.container h1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 2.2em;
+    text-align: center;
+    width: 100%;
+}
+section div.container h2{
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1rem;
+    text-align: center;
+}
+section div.postContainer h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.1rem;
+    text-align: center;
+}
+section div.container h3{
+    font-size: 2em;
+    margin: 0 0 0 20px;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+}
+/* modal */
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: all 2s ease-in-out;
+}
+/* Modal Content */
+.modalContent {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+/* The Close Button */
+.closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.closeModal  {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* index.html */
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    padding: 50px 0 ;
+}
+.menu .container{
+    display: flex;
+    justify-content: space-between;
+}
+.menu ul{
+    margin: 0;
+    list-style: none;
+    display: block;
+}
+.menu ul li{
+    display: inline-block;
+}
+.menu ul li a{
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    color: black;
+    transition: all 1s ease-in-out;
+}
+.menu ul li a img{
+    width: 40px;
+    opacity: .2;
+    transition: all 0.2s ease-in-out;
+}
+.menu ul li a img:hover{
+    opacity: 1;
+    filter: drop-shadow(0.5px 0.5px 3px rgba(0,0,0,0.4));
+    transition: all 1s ease-in-out;
+}
+.active{
+    color: #f44336 !important;
+    font-weight: bold;
+}
+.menu ul li{
+    position: relative;
+}
+.login{
+    position: absolute;
+    right: 22px;
+    background-color: rgba(234,234,234,1);
+    width: 350px;
+    height: 230px;
+    display: none;
+    transition: all 1s ease-in-out;
+    z-index: 20;
+}
+.login fieldset{
+    margin: 20px;
+    border: 0.5px solid lightgrey;
+}
+.login fieldset legend{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Raleway', sans-serif;
+    padding: 0 10px;
+}
+.login input[type="email"]{
+    margin: 20px auto 0 auto;
+    display: block;
+    width: 90%;
+}
+.login input[type="password"]{
+    margin:5px auto 20px auto;
+    display: block;
+    width: 90%;
+}
+.login input[type="submit"]{
+    display: block;
+    float: right;
+    margin-right: 7px;
+    background-color: lightgray;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.login input[type="submit"]:hover{
+    background-color: #f44336;
+    color: white;
+}
+header{
+    text-align: center;
+    margin-bottom: 70px;
+}
+header a{
+    text-decoration: none;
+    color: #000;
+}
+header h1, header h2{
+    font-family: 'Raleway', sans-serif;
+}
+header h1::before{
+    content:'';
+    width: 10px;
+    height: 10px;
+    background-color: #f44336;
+    margin-right: 2px;
+    display: inline-block;
+}
+header h1::after{
+    content: 'x';
+    margin-left: 2px;
+    font-size: 0.9rem;
+    /* display: inline-block; */
+    position: relative;
+    bottom: 10px;
+}
+header h2{
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+}
+.postContainer{
+    /* max-width: 80%; */
+    margin: 0 auto 50px auto;
+    display: grid;
+    grid-template-areas:
+    "postData postMidia"
+    "postData postTitulo"
+    "postData postContent";
+    grid-template-columns: 20px auto ;
+}
+.postData{
+    grid-area: postData;
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 200px;
+    text-align: right;
+    color: grey;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+}
+.postMidia{
+    grid-area: postMidia;
+    margin-left: 30px;
+    width: 95%;
+}
+.postContainer h2{
+    grid-area: postTitulo;
+    font-size: 2.75em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.postContainer h2>a{
+    text-decoration: none;
+    color: #000;
+}
+.postContent{
+    grid-area: postContent;
+    height: 100%;
+    transition: height 2s ease-in-out;
+}
+.text{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    transition: height 1s ease-in-out;
+}
+.expandir{
+    height: 90%;
+}
+.postContent p{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.3rem;
+    text-align: justify;
+}
+.hashtags{
+    margin:20px 0 10px 0;
+}
+.hashtags h4{
+    font-size: 1.2em;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin: 0;
+}
+div.text p.autor{
+    margin: 30px 0;
+    width: 100%;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+}
+.hashtags a{
+    font-size: 0.9em;
+}
+.show{
+    padding: 20px 0;
+    text-align: center;
+
+}
+.show a{
+    text-decoration: none;
+    color:black;
+    font-family: 'Raleway', sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+.show a:hover{
+    color: #f44336;
+}
+.show a::after{
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color:#000;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+.show a:hover::after{
+    background-color: #f44336;
+    transition: all 0.3s ease-in-out;
+    width: 100px;
+}
+main+footer{
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+footer p{
+    font-family: 'Montserrat', sans-serif;
+}
+.socialNetworks ul{
+    list-style: none;
+}
+.socialNetworks li{
+    display: inline-block;
+    margin: 0 -15px;
+}
+.socialNetworks img{
+    width: 60%;
+    filter: grayscale(1);
+    transition: all 0.2s ease-in-out;
+}
+.socialNetworks img:hover{
+    filter: none;
+}
+/* Writers Page */
+.writers{
+    flex-direction: column;
+}
+.writersList{
+    margin:30px 0 0 0;
+}
+.writersList h3::after{
+    content: '';
+    max-width: 600px;
+    height: 4px;
+    background-color: #f44336;
+    display: inline-block;
+    align-self: center;
+    margin: 5px;
+    width: 100%;
+}
+.writerDesc{
+    display: flex;
+}
+.writerDesc figure{
+    margin: 30px 20px
+}
+.writerDesc img{
+    max-width: 250px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 5px;
+    border-radius: 2px;
+}
+.writerDesc p{
+    margin-top: 30px;
+    text-align: justify;
+    padding-right: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+/* Contact Page */
+div.contact{
+    flex-direction: column;
+    /* align-items: ; */
+    width: 600px;
+    margin-bottom: 30px;
+}
+fieldset.contactForm{
+    display: flex;
+    border: 0.5px solid lightgrey;
+}
+fieldset.contactForm legend{
+    font-size: 1.5em;
+    padding: 0 20px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    font-family: sans-serif;
+}
+.contactForm input{
+    width: 80%;
+    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
+    border: 0.5px solid#cecece;
+    border-radius: 2px;
+}
+.contactForm input[type="submit"]{
+    width: 100px;
+    float: right;
+    margin-right: 50px;
+    background-color: lightgray;
+    border: none;
+    padding: 10px;
+
+}
+.contactForm input[type="submit"]:hover{
+    background-color: #f44336;
+    cursor: pointer;
+    color: white;
+}
+.contactForm textarea{
+    margin: 0 auto 10px auto !important;
+    width: 81%;
+    height: 100px;
+    border: 0.5px solid#cecece;
+    border-radius: 2px;
+}
+.side{
+    display: block;
+}
+
+.categoria-itens{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.categorias-links{
+    display: block;
+    padding: 2px 16px 2px 0;
+    border-left: 4px solid transparent;
+    position: relative;
+    color: #000;
+    text-decoration: none;
+}
+
+.categorias-links span{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.f-blog{
+    position: relative;
+    padding: 0;
+    /*padding-left: 120px;*/
+    margin-bottom: 40px;
+    background: transparent;
+    display: flex;
+}
+.f-blog-link{
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+}
+.f-blog-img{
+    max-width: 100%;
+    padding-right: 5px;
+}
+
+.admin span{
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #999999;
+}
+
+.tag-item{
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    float: left;
+}
+
+.tag-link{
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #f44336;
+}
+
+
+@-moz-document url-prefix(){
+    fieldset.contactForm {
+        display: flex;
+        flex-direction: column;
+        display: flex;
+        border: 0.5px solid lightgrey;
+    }
+    fieldset.contactForm legend {
+        font-size: 1.9em;
+        padding: 0 20px;
+        text-align: center;
+        margin:0 auto 30px auto;
+        font-family: sans-serif;
+    }
+}
