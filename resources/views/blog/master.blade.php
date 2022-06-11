@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Tags meta de defini~ções basicas do site -->
+    <!-- Tags meta de definições basicas do site -->
     <meta name="author" content="Gustavo Pessoa - CodNome.com.br">
     <meta name="description" content="Descrição do site aqui">
     <meta name="keywords" content="todas, as palavras, chavss do site, separadas, por virgula">
@@ -33,9 +33,9 @@
     <nav class="menu">
         <div class="container">
             <ul>
-                <li><a href="./index.php" class="active">Blog</a></li>
-                <li><a href="pages/writers.php">Escritores</a></li>
-                <li><a href="pages/contact.php">Contato</a></li>
+                <li><a href=" {{ route('blog.home') }}" class="active">Blog</a></li>
+                <li><a href="{{ route('blog.escritores') }}">Escritores</a></li>
+                <li><a href="{{ route('blog.contato') }}">Contato</a></li>
             </ul>
             <ul>
                 <li class="dropDown"><a href="#" class="lgAdmin"><img src="{{ asset('img/admIcon.png')}}" alt=""></a>
@@ -59,11 +59,11 @@
 <!-- Conteúdo Principal da Página -->
 <main class="container">
     <!-- Conteudo principal posts -->
-    <div class="content col-md-8">
+    <div class="content col-md-8 mb-5">
         @yield('content')
     </div>
     <!-- Aside - Barra Lateral da página -->
-    <aside class="col-md-4 animate-box">
+    <aside class="col-md-4 animate-box mb-5">
         <div>
             <div class="side">
                 <h3 class="fs-3 mb-4">Categories</h3>
