@@ -4977,9 +4977,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 
+ // window.Alpine = Alpine;
+//
+// Alpine.start();
 
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_1__["default"].start();
+var btn = document.querySelector('.mostrarMais');
+
+if (btn) {
+  var mostrarMais = function mostrarMais(button, cont) {
+    var btn = button;
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      var content = cont;
+
+      if (content.classList.toggle('expandir')) {
+        btn.innerHTML = 'Mostrar Menos';
+      } else {
+        btn.innerHTML = 'Mostrar Mais';
+      }
+    });
+  };
+
+  var div = document.querySelector('.postContent div');
+  mostrarMais(btn, div);
+}
+
+function toggledisplay(elementSelector) {
+  (function (style) {
+    style.display = style.display === 'block' ? '' : 'block';
+  })(document.querySelector(elementSelector).style);
+} //mostrar formulário de login
+
+
+var formLogin = document.querySelector(".lgAdmin");
+formLogin.addEventListener("click", function (event) {
+  event.preventDefault();
+  toggledisplay(".login");
+  document.addEventListener("click", function (event) {
+    if (event.target == formLogin) {
+      formLogin.style.display = "none";
+    }
+  });
+}); //Login
+
+function login(btn) {
+  btn.addEventListener("click", function (event) {
+    event.preventDefault();
+    var email = document.querySelector("#email");
+    var senha = document.querySelector("#senha");
+    var url = document.URL;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify({
+        "email": email.value,
+        "senha": senha.value
+      })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      if (json[0] == "ok") {
+        window.location = "http://localhost/MinimalBlog/www/adm/index.php";
+      } else {
+        alert("Usuário não encontrado");
+      }
+    });
+  });
+}
+
+var logar = document.querySelector("#logar");
+login(logar);
 
 /***/ }),
 
@@ -22239,6 +22308,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/bootstrap.min.css":
+/*!*****************************************!*\
+  !*** ./resources/css/bootstrap.min.css ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/normalize.css":
+/*!*************************************!*\
+  !*** ./resources/css/normalize.css ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -22579,7 +22674,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/normalize": 0,
+/******/ 			"css/bootstrap.min": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -22629,8 +22726,10 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/normalize","css/bootstrap.min"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/normalize","css/bootstrap.min"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/normalize","css/bootstrap.min"], () => (__webpack_require__("./resources/css/bootstrap.min.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/normalize","css/bootstrap.min"], () => (__webpack_require__("./resources/css/normalize.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
