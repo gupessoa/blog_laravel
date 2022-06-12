@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -33,6 +34,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $role = Role::where('name', 'user')->get();
+
+        if($role == null)
+        {
+            $role = Role::create(['name' => 'user']);
+            $id_role = $role->id;
+        }else{
+            $id_role = $role->id;
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -43,6 +54,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'id_role' => $id_role,
         ]);
 
         event(new Registered($user));
