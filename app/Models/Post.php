@@ -32,4 +32,9 @@ class Post extends Model
     {
         $this->belongsToMany(Tag::class);
     }
+
+    public function comments()
+    {
+        $this->hasMany(Comment::class);
+    }
 }
