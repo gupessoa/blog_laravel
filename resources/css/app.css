@@ -509,6 +509,18 @@ fieldset.contactForm legend{
     border: none;
 }
 
+.text-small{
+    font-size: 85%;
+}
+
+.dropdown-menu a::after,
+.show .navbar-nav .nav-link:after,
+.dropdown a::after{
+    content: none;
+}
+/*#navbarSupportedContent > ul > li:nth-child(1) > a{*/
+/*    content: none;*/
+/*}*/
 
 @-moz-document url-prefix(){
     fieldset.contactForm {
