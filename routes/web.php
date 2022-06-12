@@ -25,5 +25,8 @@ Route::get('/contato', function () {
 Route::get('/escritores', function () {
     return view('blog.escritores');
 })->name('blog.escritores');
+Route::get('/post', function () {
+    return view('blog.post');
+})->name('blog.post');
 
 require __DIR__.'/auth.php';

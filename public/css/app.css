@@ -1549,7 +1549,7 @@ header h2{
     font-weight: normal;
     margin: 0;
 }
-div.text p.autor{
+p.autor{
     margin: 30px 0;
     width: 100%;
     text-align: right;
@@ -1613,9 +1613,6 @@ footer p{
 /* Writers Page */
 .writers{
     flex-direction: column;
-}
-.writers:last-child{
-    margin-bottom: 30px;
 }
 .writersList{
     margin:30px 0 0 0;

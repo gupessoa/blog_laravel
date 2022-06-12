@@ -16,7 +16,7 @@
     <meta property="og:url" content="url do site">
     <meta property="og:image" content="imagem prévia do site">
     <!-- titulo da pagina -->
-    <title>Meu Blog</title>
+    <title>@yield('title')</title>
     <!-- Fontes personalizadas -->
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">

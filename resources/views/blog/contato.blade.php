@@ -1,5 +1,7 @@
 @extends('blog.master')
 
+@section('title', 'MeuBlog | Contato')
+
 @section('content')
     <section>
         <div class="container contact">

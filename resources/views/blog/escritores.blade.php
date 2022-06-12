@@ -1,5 +1,7 @@
 @extends('blog.master')
 
+@section('title', 'MeuBlog | Escritores')
+
 @section('content')
     <section>
         <div class="container writers">
