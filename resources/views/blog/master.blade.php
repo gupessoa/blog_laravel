@@ -30,49 +30,103 @@
 <body style="background-image: url("{{ asset('img/bg.png') }}")">
 <!-- Cabeçalho da página -->
 <header>
-    <nav class="menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent my-5">
         <div class="container">
-            <ul>
-                <li><a href=" {{ route('blog.home') }}" class="active">Blog</a></li>
-                <li><a href="{{ route('blog.escritores') }}">Escritores</a></li>
-                <li><a href="{{ route('blog.contato') }}">Contato</a></li>
-            </ul>
-            @guest
-                <ul>
-                    <li class="dropDown"><a href="#" class="lgAdmin"><img src="{{ asset('img/admIcon.png')}}" alt=""></a>
-                        <div class="login">
-                            <form method="post">
-                                <fieldset class="fieldsetLogin">
-                                    <legend>Login Administração</legend>
-                                    <input type="email" name="email" id="email" placeholder="E-mail">
-                                    <input type="password" name="senha" id="senha" placeholder="Senha">
-                                    <input type="submit" id="logar" value="Entrar">
-                                </fieldset>
-                            </form>
-                        </div>
+{{--            <a class="navbar-brand" href="#">Navbar</a>--}}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('blog.home') }}">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog.escritores') }}">Escritores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog.contato') }}">Contato</a>
+                    </li>
+
                 </ul>
-            @endguest
-            @auth
+                <div class="text-end">
+                    @guest
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-center" href="{{ route('login') }}">
+                                    Login
+                                </a>
+                            </li>
+                        </ul>
+                    @endguest
+                    @auth
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ \App\Models\User::find(auth()->id())->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-light border-none" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('nav-logout-form').submit();" href="#">Logout</a>
+                                        <form id="nav-logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    @endauth
+                </div>
+{{--                <form class="d-flex">--}}
+{{--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--}}
+{{--                    <button class="btn btn-outline-success" type="submit">Search</button>--}}
+{{--                </form>--}}
+            </div>
+        </div>
+    </nav>
+{{--    <nav class="menu">--}}
+{{--        <div class="container">--}}
+{{--            <ul>--}}
+{{--                <li><a href=" {{ route('blog.home') }}" class="active">Blog</a></li>--}}
+{{--                <li><a href="{{ route('blog.escritores') }}">Escritores</a></li>--}}
+{{--                <li><a href="{{ route('blog.contato') }}">Contato</a></li>--}}
+{{--            </ul>--}}
+{{--            @guest--}}
+{{--                <ul>--}}
+{{--                    <li class="dropDown"><a href="#" class="lgAdmin"><img src="{{ asset('img/admIcon.png')}}" alt=""></a>--}}
+{{--                        <div class="login">--}}
+{{--                            <form method="post">--}}
+{{--                                <fieldset class="fieldsetLogin">--}}
+{{--                                    <legend>Login Administração</legend>--}}
+{{--                                    <input type="email" name="email" id="email" placeholder="E-mail">--}}
+{{--                                    <input type="password" name="senha" id="senha" placeholder="Senha">--}}
+{{--                                    <input type="submit" id="logar" value="Entrar">--}}
+{{--                                </fieldset>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            @endguest--}}
+{{--            @auth--}}
 {{--                <ul>--}}
 {{--                    <li class="dropDown">--}}
 {{--                        <a href="#" class="lgAdmin">{{ auth()->user()->name }}</a>--}}
 {{--                    </li>--}}
 {{--                </ul>--}}
-                <div class="dropdown">
-                    <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            @endauth
-        </div>
-    </nav>
-    <h1><a href="./index.php">Meu Blog</a> </h1>
+{{--                <div class="dropdown">--}}
+{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                        Dropdown--}}
+{{--                    </a>--}}
+{{--                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">--}}
+{{--                        <li><a class="dropdown-item" href="#">Action</a></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">Another action</a></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            @endauth--}}
+{{--        </div>--}}
+{{--    </nav>--}}
+    <h1><a href="{{ route('blog.home') }}">Meu Blog</a> </h1>
     <h2>Um blog criado por mim, especifico para que eu gosto</h2>
 </header>
 <!-- Conteúdo Principal da Página -->

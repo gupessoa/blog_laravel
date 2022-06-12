@@ -5007,48 +5007,43 @@ function toggledisplay(elementSelector) {
     style.display = style.display === 'block' ? '' : 'block';
   })(document.querySelector(elementSelector).style);
 } //mostrar formulário de login
-
-
-var formLogin = document.querySelector(".lgAdmin");
-formLogin.addEventListener("click", function (event) {
-  event.preventDefault();
-  toggledisplay(".login");
-  document.addEventListener("click", function (event) {
-    if (event.target == formLogin) {
-      formLogin.style.display = "none";
-    }
-  });
-}); //Login
-
-function login(btn) {
-  btn.addEventListener("click", function (event) {
-    event.preventDefault();
-    var email = document.querySelector("#email");
-    var senha = document.querySelector("#senha");
-    var url = document.URL;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({
-        "email": email.value,
-        "senha": senha.value
-      })
-    }).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      if (json[0] == "ok") {
-        window.location = "http://localhost/MinimalBlog/www/adm/index.php";
-      } else {
-        alert("Usuário não encontrado");
-      }
-    });
-  });
-}
-
-var logar = document.querySelector("#logar");
-login(logar);
+// let formLogin = document.querySelector(".lgAdmin");
+// formLogin.addEventListener("click", (event)=>{
+//     event.preventDefault();
+//     toggledisplay(".login");
+//     document.addEventListener("click",(event)=>{
+//         if(event.target == formLogin){
+//             formLogin.style.display="none";
+//         }
+//     })
+// });
+//Login
+// function login(btn){
+//     btn.addEventListener("click", function(event){
+//         event.preventDefault();
+//         let email = document.querySelector("#email");
+//         let senha = document.querySelector("#senha");
+//         let url = document.URL;
+//         fetch(url,{
+//             method:"POST",
+//             headers:{"Content-Type":"application/json; charset=utf-8"},
+//             body: JSON.stringify({
+//                 "email":email.value,
+//                 "senha":senha.value
+//             })
+//         })
+//             .then(response => response.json())
+//             .then(json =>{
+//                 if(json[0] == "ok"){
+//                     window.location="http://localhost/MinimalBlog/www/adm/index.php"
+//                 }else{
+//                     alert("Usuário não encontrado");
+//                 }
+//             });
+//     });
+// }
+// let logar= document.querySelector("#logar");
+// login(logar);
 
 /***/ }),
 
