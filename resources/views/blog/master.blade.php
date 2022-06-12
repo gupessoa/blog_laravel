@@ -37,20 +37,29 @@
                 <li><a href="{{ route('blog.escritores') }}">Escritores</a></li>
                 <li><a href="{{ route('blog.contato') }}">Contato</a></li>
             </ul>
-            <ul>
-                <li class="dropDown"><a href="#" class="lgAdmin"><img src="{{ asset('img/admIcon.png')}}" alt=""></a>
-                    <div class="login">
-                        <form method="post">
-                            <fieldset class="fieldsetLogin">
-                                <legend>Login Administração</legend>
-                                <input type="email" name="email" id="email" placeholder="E-mail">
-                                <input type="password" name="senha" id="senha" placeholder="Senha">
-                                <input type="submit" id="logar" value="Entrar">
-                            </fieldset>
-                        </form>
-                    </div>
-                </li>
-            </ul>
+            @guest
+                <ul>
+                    <li class="dropDown"><a href="#" class="lgAdmin"><img src="{{ asset('img/admIcon.png')}}" alt=""></a>
+                        <div class="login">
+                            <form method="post">
+                                <fieldset class="fieldsetLogin">
+                                    <legend>Login Administração</legend>
+                                    <input type="email" name="email" id="email" placeholder="E-mail">
+                                    <input type="password" name="senha" id="senha" placeholder="Senha">
+                                    <input type="submit" id="logar" value="Entrar">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            @endguest
+            @auth
+                <ul>
+                    <li class="dropDown">
+                        <a href="#" class="lgAdmin">Usuário Nome</a>
+                    </li>
+                </ul>
+            @endauth
         </div>
     </nav>
     <h1><a href="./index.php">Meu Blog</a> </h1>
