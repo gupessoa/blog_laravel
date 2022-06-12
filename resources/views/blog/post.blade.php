@@ -1,6 +1,6 @@
 @extends('blog.master')
 
-@section('title', 'MeuBlog | Home')
+@section('title', 'MeuBlog | Meu Post')
 
 @section('content')
     <!-- Declaração uma sessão do site -->
@@ -13,7 +13,7 @@
                     <h2 class="my-4"><a href="">Eu sou Assim!!!</a></h2>
                     <time datetime="2019-11-19" class="postData">19 Nov 2019</time>
                     <div class="postContent">
-                        <div class="text">
+                        <div>
                             <p>Eu sou assim....</p>
                             <p>Eu erro. Eu amo. Eu choro. Eu brinco. Eu sorrio. Eu tenho defeitos. Eu tenho qualidades.
                                 Eu sou mal-humorado, me magoo com facilidade e as vezes sou insuportável, reclamo, xingo,
@@ -36,9 +36,6 @@
                                 <h4>Hashtag</h4>
                                 <p><a href="">#GustavoPessoa</a> <a href="">#MeusMomentos</a> <a href="">#MeusPensamentos</a> <a href="">#ParteDeMim</a> <a href="">#Trintei</a> <a href="">#MeuMundo</a></p>
                             </div>
-                        </div>
-                        <div class="show">
-                            <a href="" class="mostrarMais">Mostrar Mais</a>
                         </div>
                     </div>
                 </div>
