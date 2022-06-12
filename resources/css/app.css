@@ -491,6 +491,24 @@ fieldset.contactForm legend{
     background-color: #f44336;
 }
 
+.comentario img{
+    max-width: 100px;
+    border: none;
+}
+
+.comentario p{
+    text-align: justify;
+}
+
+.form-group input[type='text']{
+    border-color: #ced4da !important;
+}
+
+.form-group input[type='submit']{
+    background-color: #f44336 !important;
+    border: none;
+}
+
 
 @-moz-document url-prefix(){
     fieldset.contactForm {
