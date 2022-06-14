@@ -19,8 +19,8 @@ class CommentFactory extends Factory
     {
         return [
             'the_comment'=> $this->faker->paragraph(),
-            'post_id' => Post::all()->random(1)->first()->id,
-            'user_id' => User::all()->random(1)->first()->id,
+            'id_post' => Post::all()->random(1)->first()->id,
+            'id_user' => User::all()->random(1)->first()->id,
         ];
     }
 }
