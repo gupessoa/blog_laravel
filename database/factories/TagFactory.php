@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CategoryFactory extends Factory
+class TagFactory extends Factory
 {
-    protected $model = Category::class;
+    protected $model = Tag::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +17,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'slug' => $this->faker->unique()->slug(),
         ];
     }
 }
