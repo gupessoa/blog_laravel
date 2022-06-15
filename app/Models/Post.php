@@ -18,9 +18,9 @@ class Post extends Model
         'id_category'
     ];
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function category()
@@ -30,12 +30,12 @@ class Post extends Model
 
     public function tags()
     {
-        $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function comments()
     {
-        $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function image()

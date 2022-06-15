@@ -20,11 +20,11 @@ class CreatePostsTable extends Migration
             $table->string('excerpt');
             $table->text('body');
 
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
-            $table->unsignedBigInteger('id_category');
-            $table->foreign('id_category')->references('id')->on('categories');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();
         });

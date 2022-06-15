@@ -10,9 +10,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $posts = Post::all();
-
-        dd($posts);
+        $posts = Post::withCount(['comments'])->get();
 
         return view('home',[
             'posts' => $posts,

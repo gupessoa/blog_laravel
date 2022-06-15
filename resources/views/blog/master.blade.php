@@ -23,11 +23,12 @@
     <!-- link para reset Normalize e Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- links css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <!-- links js -->
 </head>
-<body style="background-image: url("{{ asset('img/bg.png') }}")">
+<body style="background-image: url('{{ asset('img/bg.png') }}');">
 <!-- Cabeçalho da página -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent my-5">

@@ -15,8 +15,8 @@ class CreatePostTagTable extends Migration
     {
         Schema::create('post_tag', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_post');
-            $table->unsignedBigInteger('id_tag');
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
         });
     }

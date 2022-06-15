@@ -746,13 +746,17 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -783,6 +787,9 @@ select {
 }
 .ml-4 {
   margin-left: 1rem;
+}
+.ml-0 {
+  margin-left: 0px;
 }
 .mt-6 {
   margin-top: 1.5rem;
@@ -1061,6 +1068,10 @@ select {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1327,8 +1338,8 @@ input:focus {
     margin: 5px;
 }
 section img{
-    border: 1px solid gray;
-    padding: 10px;
+    border: 1px solid #cecece;
+    padding: 5px;
     background-color: white;
 }
 section div.container h1{
@@ -1353,7 +1364,7 @@ section div.postContainer h2{
     text-align: center;
 }
 section div.container h3{
-    font-size: 2em;
+    font-size: 1.75em;
     margin: 0 0 0 20px;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 5px;
@@ -1813,6 +1824,15 @@ fieldset.contactForm legend{
 .show .navbar-nav .nav-link:after,
 .dropdown a::after{
     content: none;
+}
+
+/*.home-item-post{*/
+/*    border: 1px solid #cecece;*/
+/*}*/
+
+.home-item-post a.img-link{
+    border-right: 1px solid #cecece;
+    max-width: 200px;
 }
 /*#navbarSupportedContent > ul > li:nth-child(1) > a{*/
 /*    content: none;*/

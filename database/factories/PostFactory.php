@@ -20,8 +20,8 @@ class PostFactory extends Factory
             'slug'=>$this->faker->unique()->slug(),
             'excerpt'=>$this->faker->sentence(),
             'body'=>$this->faker->paragraph(),
-            'id_user'=> User::factory(),
-            'id_category'=> Category::factory(),
+            'user_id'=> User::factory(),
+            'category_id'=> Category::factory(),
         ];
     }
 }
