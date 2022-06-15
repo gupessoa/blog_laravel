@@ -8,7 +8,7 @@
     <div class="content col-md-8 mb-5">
         <!-- Declaração uma sessão do site -->
         <section class="d-flex flex-column">
-            @foreach($posts as $post)
+            @forelse($posts as $post)
                 <div class="my-2">
                     <!-- Devido ao H1 ser o titulo principal do site usamos o h2 para outro titulo de importância -->
                     <div class="block-21 d-flex animate-box home-item-post">
@@ -30,7 +30,13 @@
                     </div>
 
                 </div>
-            @endforeach
+            @empty
+                <p class="lead text-center"> There are no posts to show.</p>
+            @endforelse
+
+            <div class="d-flex justify-center mt-5">
+                {{ $posts->links() }}
+            </div>
         </section>
     </div>
     <!-- Aside - Barra Lateral da página -->
