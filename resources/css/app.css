@@ -27,8 +27,8 @@ input:focus {
     margin: 5px;
 }
 section img{
-    border: 1px solid gray;
-    padding: 10px;
+    border: 1px solid #cecece;
+    padding: 5px;
     background-color: white;
 }
 section div.container h1{
@@ -53,7 +53,7 @@ section div.postContainer h2{
     text-align: center;
 }
 section div.container h3{
-    font-size: 2em;
+    font-size: 1.75em;
     margin: 0 0 0 20px;
     font-family: 'Raleway', sans-serif;
     letter-spacing: 5px;
@@ -517,6 +517,15 @@ fieldset.contactForm legend{
 .show .navbar-nav .nav-link:after,
 .dropdown a::after{
     content: none;
+}
+
+/*.home-item-post{*/
+/*    border: 1px solid #cecece;*/
+/*}*/
+
+.home-item-post a.img-link{
+    border-right: 1px solid #cecece;
+    max-width: 200px;
 }
 /*#navbarSupportedContent > ul > li:nth-child(1) > a{*/
 /*    content: none;*/

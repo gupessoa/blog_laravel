@@ -3,60 +3,84 @@
 @section('title', 'MeuBlog | Home')
 
 @section('content')
-    <!-- Declaração uma sessão do site -->
-    <section>
-        <div class="container">
-            <!-- Devido ao H1 ser o titulo principal do site usamos o h2 para outro titulo de importância -->
-            <article>
-                <div class="container postContainer">
-                    <img src="{{ asset("img/1.jpg") }}" alt="" title="" class="postMidia">
-                    <h2 class="my-4"><a href="">Eu sou Assim!!!</a></h2>
-                    <time datetime="2019-11-19" class="postData">19 Nov 2019</time>
-                    <div class="postContent">
-                        <div class="text">
-                            <p>Eu sou assim....</p>
-                            <p>Eu erro. Eu amo. Eu choro. Eu brinco. Eu sorrio. Eu tenho defeitos. Eu tenho qualidades.
-                                Eu sou mal-humorado, me magoo com facilidade e as vezes sou insuportável, reclamo, xingo,
-                                ignoro, Eu não sou perfeito.</p>
-                            <p>Realmente eu não sou tão doce quanto pensam e nem tão azedo como gostariam.
-                                Sou curioso, desconfiado, temperamental, e em alguns casos, teimoso. Tenho coração Mole,
-                                sangue quente e insisto na mania de acreditar em sonhos, finais felizes e pessoas sinceras.</p>
-                            <p>Comigo é oito ou oitenta, sem meio termos,mais ou menos,
-                                ou é ou não é, não tem meia estrada ou rodeios. Não sei fazer nada pela metade ,
-                                nem de qualquer jeito, não sei amar um pouco, não sei ser meio amigo, lealdade é pra
-                                poucos. Sou assim, simples, intenso.</p>
-                            <p>Não sou para todos... Gosto muito do meu mundinho, Ele é cheio de surpresas,
-                                palavras soltas e cores misturadas. Às vezes tem um céu azul, outras tempestades.
-                                Lá dentro cabem sonhos de todos os tamanhos. Mas não cabe muita gente, todas as pessoas
-                                que estão dentro dele não estão por acaso. São necessárias.</p>
-                            <p>Nem sempre tenho as melhores atitudes, nem sempre faço o que esta certo,
-                                mas o que sai de mim é genuíno.</p>
-                            <p class="autor">Gustavo Pessoa</p>
-                            <div class="hashtags">
-                                <h4>Hashtag</h4>
-                                <p><a href="">#GustavoPessoa</a> <a href="">#MeusMomentos</a> <a href="">#MeusPensamentos</a> <a href="">#ParteDeMim</a> <a href="">#Trintei</a> <a href="">#MeuMundo</a></p>
+
+    <!-- Conteudo principal posts -->
+    <div class="content col-md-8 mb-5">
+        <!-- Declaração uma sessão do site -->
+        <section class="d-flex flex-column">
+            @forelse($posts as $post)
+                <div class="my-2">
+                    <!-- Devido ao H1 ser o titulo principal do site usamos o h2 para outro titulo de importância -->
+                    <div class="block-21 d-flex animate-box home-item-post">
+                        <a class="img-link" href="#">
+                            <img src="{{ asset('storage/'.$post->image->path.'') }}" alt="">
+                        </a>
+                        <div class="text px-3 w-100 h-100">
+                            <h4 class="h4 ml-0">
+                                <a href="">{{ $post->title }}</a>
+                            </h4>
+                            {{--                        {{dd($post->author())}}--}}
+                            <p>{{ $post->excerpt }}</p>
+                            <div class="meta d-flex justify-between">
+                                <div><a href=""><i class="bi bi-calendar"></i> {{ $post->created_at->diffForHumans() }}</a></div>
+                                <div><a href=""><i class="bi bi-person"></i> {{ $post->author->name }}</a></div>
+                                <div><a href=""><i class="bi bi-chat"></i> {{$post->comments_count}}</a></div>
                             </div>
                         </div>
-                        <div class="show">
-                            <a href="" class="mostrarMais">Mostrar Mais</a>
-                        </div>
                     </div>
-                </div>
-            </article>
-        </div>
-        <!-- <div class="modal">
-                <div class="modalContent modalLogin">
-                    <span class="closeModal">&times;</span>
-                    <form method="post">
-                        <fieldset>
-                            <legend>Login Administração</legend>
-                            <input type="email" name="email" id="email" placeholder="E-mail">
-                            <input type="password" name="senha" id="senha" placeholder="Senha">
-                            <input type="submit" id="logar" value="Entrar">
-                        </fieldset>
-                    </form>
 
                 </div>
-            </div>    -->
-    </section>
+            @empty
+                <p class="lead text-center"> There are no posts to show.</p>
+            @endforelse
+
+            <div class="d-flex justify-center mt-5">
+                {{ $posts->links() }}
+            </div>
+        </section>
+    </div>
+    <!-- Aside - Barra Lateral da página -->
+    <aside class="col-md-4 animate-box mb-5">
+        <div>
+            <div class="side">
+                <h3 class="fs-3 mb-4">Categories</h3>
+                <ul>
+                    @foreach($categories as $categorie)
+                        <li class="categoria-itens"><a class="categorias-links" href="#">{{ $categorie->name }}<span>{{ $categorie->posts_count}}</span></a></li>
+                    @endforeach
+
+                </ul>
+            </div>
+            <div class="side">
+                <h3 class="fs-3 mb-4">Recent Blog</h3>
+                @foreach($recent_posts as $recent_post)
+                    <div class="f-blog">
+                        <a href="blog.html" class="f-blog-link">
+                            <img class="f-blog-img" src="{{ asset('storage/'.$recent_post->image->path.'') }}" alt="">
+                        </a>
+                        <div class="desc">
+                            <p class="admin"><span>{{ $recent_post->created_at->diffForHumans() }}</span></p>
+                            <p class="">
+                                <a class="link-dark text-decoration-none fw-bold" href="blog.html">
+                                    {{ Str::limit($recent_post->title, 20) }}
+                                </a>
+                            </p>
+                            <p>{{ Str::limit($recent_post->excerpt, 20) }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="mb-5">
+                <h3 class="fs-3 mb-4">Tags</h3>
+                <div class="block-26">
+                    <ul>
+                        @foreach($tags as $tag)
+                            <li class="tag-item"><a class="tag-link text-decoration-none" href="#">{{ $tag->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
 @endsection

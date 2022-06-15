@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Image;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -34,16 +35,16 @@ class DatabaseSeeder extends Seeder
         }
 
         \App\Models\Category::factory(10)->create();
-        \App\Models\Post::factory(10)->create();
+        $posts = \App\Models\Post::factory(50)->create();
         \App\Models\Comment::factory(100)->create();
         \App\Models\Tag::factory(10)->create();
 
         foreach ( $posts as $post)
         {
             $tags_ids = [];
-            $tags_ids[] = Tag::all()->random()->id();
-            $tags_ids[] = Tag::all()->random()->id();
-            $tags_ids[] = Tag::all()->random()->id();
+            $tags_ids[] = Tag::all()->random()->id;
+            $tags_ids[] = Tag::all()->random()->id;
+            $tags_ids[] = Tag::all()->random()->id;
 
             $post->tags()->sync($tags_ids);
 
