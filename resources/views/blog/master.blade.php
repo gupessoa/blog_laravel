@@ -132,74 +132,7 @@
 </header>
 <!-- Conteúdo Principal da Página -->
 <main class="container">
-    <!-- Conteudo principal posts -->
-    <div class="content col-md-8 mb-5">
-        @yield('content')
-    </div>
-    <!-- Aside - Barra Lateral da página -->
-    <aside class="col-md-4 animate-box mb-5">
-        <div>
-            <div class="side">
-                <h3 class="fs-3 mb-4">Categories</h3>
-                <ul>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Education <span>10</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Courses <span>43</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Fashion <span>21</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Business <span>65</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Marketing <span>34</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Travel <span>45</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Video <span>22</span></a></li>
-                    <li class="categoria-itens"><a class="categorias-links" href="#">Audio <span>13</span></a></li>
-                </ul>
-            </div>
-            <div class="side">
-                <h3 class="fs-3 mb-4">Recent Blog</h3>
-                <div class="f-blog">
-                    <a href="blog.html" class="f-blog-link">
-                        <img class="f-blog-img" src="{{ asset('img/blog-1.jpg') }}" alt="">
-                    </a>
-                    <div class="desc">
-                        <p class="admin"><span>18 April 2018</span></p>
-                        <p class=""><a class="link-dark text-decoration-none fw-bold" href="blog.html">Creating Mobile Apps</a></p>
-                        <p>Far far away, behind the word mountains</p>
-                    </div>
-                </div>
-                <div class="f-blog">
-                    <a href="blog.html" class="f-blog-link">
-                        <img class="f-blog-img" src="{{ asset('img/blog-1.jpg') }}" alt="">
-                    </a>
-                    <div class="desc">
-                        <p class="admin"><span>18 April 2018</span></p>
-                        <p class=""><a class="link-dark text-decoration-none fw-bold" href="blog.html">Creating Mobile Apps</a></p>
-                        <p>Far far away, behind the word mountains</p>
-                    </div>
-                </div>
-                <div class="f-blog">
-                    <a href="blog.html" class="f-blog-link">
-                        <img class="f-blog-img" src="{{ asset('img/blog-1.jpg') }}" alt="">
-                    </a>
-                    <div class="desc">
-                        <p class="admin"><span>18 April 2018</span></p>
-                        <p class=""><a class="link-dark text-decoration-none fw-bold" href="blog.html">Creating Mobile Apps</a></p>
-                        <p>Far far away, behind the word mountains</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-5">
-                <h3 class="fs-3 mb-4">Tags</h3>
-                <div class="block-26">
-                    <ul>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">code</a></li>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">design</a></li>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">typography</a></li>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">development</a></li>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">creative</a></li>
-                        <li class="tag-item"><a class="tag-link text-decoration-none" href="#">codehack</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </aside>
+    @yield('content')
 </main>
 <!-- Rodapé da Página -->
 <footer>
