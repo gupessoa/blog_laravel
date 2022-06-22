@@ -12,12 +12,12 @@
                 <div class="my-2">
                     <!-- Devido ao H1 ser o titulo principal do site usamos o h2 para outro titulo de importância -->
                     <div class="block-21 d-flex animate-box home-item-post">
-                        <a class="img-link" href="#">
+                        <a class="img-link" href="{{ route('posts.show', $post) }}">
                             <img src="{{ asset('storage/'.$post->image->path.'') }}" alt="">
                         </a>
                         <div class="text px-3 w-100 h-100">
                             <h4 class="h4 ml-0">
-                                <a href="">{{ $post->title }}</a>
+                                <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
                             </h4>
                             {{--                        {{dd($post->author())}}--}}
                             <p>{{ $post->excerpt }}</p>
@@ -55,13 +55,13 @@
                 <h3 class="fs-3 mb-4">Recent Blog</h3>
                 @foreach($recent_posts as $recent_post)
                     <div class="f-blog">
-                        <a href="blog.html" class="f-blog-link">
+                        <a href="{{ route('posts.show', $recent_post) }}" class="f-blog-link">
                             <img class="f-blog-img" src="{{ asset('storage/'.$recent_post->image->path.'') }}" alt="">
                         </a>
                         <div class="desc">
                             <p class="admin"><span>{{ $recent_post->created_at->diffForHumans() }}</span></p>
                             <p class="">
-                                <a class="link-dark text-decoration-none fw-bold" href="blog.html">
+                                <a class="link-dark text-decoration-none fw-bold" href="{{ route('posts.show', $recent_post) }}">
                                     {{ Str::limit($recent_post->title, 20) }}
                                 </a>
                             </p>
