@@ -143,4 +143,11 @@
                 </div>
             </div>    -->
     </section>
+    <aside class="col-md-4 animate-box mb-5">
+        <div>
+            <x-blog.side-categories :categories="$categories"/>
+            <x-blog.side-recent-posts :recentPosts="$recent_posts"/>
+            <x-blog.side-tags :tags="$tags"/>
+        </div>
+    </aside>
 @endsection

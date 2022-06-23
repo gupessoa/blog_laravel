@@ -42,44 +42,9 @@
     <!-- Aside - Barra Lateral da página -->
     <aside class="col-md-4 animate-box mb-5">
         <div>
-            <div class="side">
-                <h3 class="fs-3 mb-4">Categories</h3>
-                <ul>
-                    @foreach($categories as $categorie)
-                        <li class="categoria-itens"><a class="categorias-links" href="#">{{ $categorie->name }}<span>{{ $categorie->posts_count}}</span></a></li>
-                    @endforeach
-
-                </ul>
-            </div>
-            <div class="side">
-                <h3 class="fs-3 mb-4">Recent Blog</h3>
-                @foreach($recent_posts as $recent_post)
-                    <div class="f-blog">
-                        <a href="{{ route('posts.show', $recent_post) }}" class="f-blog-link">
-                            <img class="f-blog-img" src="{{ asset('storage/'.$recent_post->image->path.'') }}" alt="">
-                        </a>
-                        <div class="desc">
-                            <p class="admin"><span>{{ $recent_post->created_at->diffForHumans() }}</span></p>
-                            <p class="">
-                                <a class="link-dark text-decoration-none fw-bold" href="{{ route('posts.show', $recent_post) }}">
-                                    {{ Str::limit($recent_post->title, 20) }}
-                                </a>
-                            </p>
-                            <p>{{ Str::limit($recent_post->excerpt, 20) }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="mb-5">
-                <h3 class="fs-3 mb-4">Tags</h3>
-                <div class="block-26">
-                    <ul>
-                        @foreach($tags as $tag)
-                            <li class="tag-item"><a class="tag-link text-decoration-none" href="#">{{ $tag->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            <x-blog.side-categories :categories="$categories"/>
+            <x-blog.side-recent-posts :recentPosts="$recent_posts"/>
+            <x-blog.side-tags :tags="$tags"/>
         </div>
     </aside>
 

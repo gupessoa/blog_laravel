@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', function () {
-    return view('home');
-})->name('blog.home');
+Route::get('/home',  [HomeController::class, 'index'])->name('blog.home');
 Route::get('/contato', function () {
     return view('blog.contato');
 })->name('blog.contato');
