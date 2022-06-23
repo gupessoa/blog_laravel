@@ -27,11 +27,10 @@ class PostsController extends Controller
     public function addComment(Post $post)
     {
         $atributos = request()->validate([
-            'the_comment' => 'required|min:10|max:300'
+            'the_comment' => 'required|min:4|max:300'
         ]);
         $atributos['user_id'] = auth()->id();
 
-        dd($atributos);
         $comment = $post->comments()->create($atributos);
 
         return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success', 'Comentário adicionado com sucesso!');
