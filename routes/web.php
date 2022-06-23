@@ -24,5 +24,6 @@ Route::get('/escritores', function () {
     return view('blog.escritores');
 })->name('blog.escritores');
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
+Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
 
 require __DIR__.'/auth.php';
