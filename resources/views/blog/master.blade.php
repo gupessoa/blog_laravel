@@ -46,7 +46,7 @@
                         <a class="nav-link" href="{{ route('blog.escritores') }}">Escritores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.contato') }}">Contato</a>
+                        <a class="nav-link" href="{{ route('blog.contato.create') }}">Contato</a>
                     </li>
 
                 </ul>
