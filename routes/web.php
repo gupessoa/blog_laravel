@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\EscritoresController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
@@ -17,12 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home',  [HomeController::class, 'index'])->name('blog.home');
-Route::get('/contato', function () {
-    return view('blog.contato');
-})->name('blog.contato');
-Route::get('/escritores', function () {
-    return view('blog.escritores');
-})->name('blog.escritores');
+Route::get('/contato', [ContatoController::class, 'create'])->name('blog.contato.create');
+Route::post('/contato', [ContatoController::class, 'store'])->name('blog.contato.store');
+Route::get('/escritores', EscritoresController::class)->name('blog.escritores');
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
 
