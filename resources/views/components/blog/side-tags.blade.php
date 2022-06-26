@@ -5,7 +5,7 @@
     <div class="block-26">
         <ul>
             @foreach($tags as $tag)
-                <li class="tag-item"><a class="tag-link text-decoration-none" href="#">{{ $tag->name }}</a></li>
+                <li class="tag-item"><a class="tag-link text-decoration-none" href="{{ route('tags.show', $tag) }}">{{ $tag->name }}</a></li>
             @endforeach
         </ul>
     </div>
