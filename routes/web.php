@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\EscritoresController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +26,7 @@ Route::post('/contato', [ContatoController::class, 'store'])->name('blog.contato
 Route::get('/escritores', EscritoresController::class)->name('blog.escritores');
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
 Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
+Route::get('/categorias/{category:slug}',[CategoriaController::class, 'show'])->name('categories.show');
+Route::get('/tags/{tag:name}',[TagController::class, 'show'])->name('tags.show');
 
 require __DIR__.'/auth.php';
