@@ -30,7 +30,7 @@ class ContatoController extends Controller
 
 //        dd($contato);
 
-        Mail::to('gu.fickert@gmail.com')
+        Mail::to(env('ADMIN_EMAIL'))
             ->send( new ContatoMail(
                     $dados['nome'],
                     $dados['email'],
