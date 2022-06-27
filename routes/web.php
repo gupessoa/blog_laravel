@@ -32,7 +32,7 @@ Route::get('/tags/{tag:name}',[TagController::class, 'show'])->name('tags.show')
 
 
 
-Route::prefix('admin')->name('admin.')->middleware('auth')->group( function (){
+Route::prefix('admin')->name('admin.')->middleware('auth', 'isadmin')->group( function (){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 });
 

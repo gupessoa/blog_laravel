@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         Schema::enableForeignKeyConstraints(); //habilita as foreign keys novamente
 
         \App\Models\Role::factory(1)->create();
+        \App\Models\Role::factory(1)->create(['name'=>'admin']);
         $users = \App\Models\User::factory(10)->create();
 
         foreach ($users as $user)
