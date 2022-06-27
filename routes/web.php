@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminControllers\DashboardController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\EscritoresController;
@@ -28,5 +29,11 @@ Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.
 Route::post('/posts/{post:slug}', [PostsController::class, 'addComment'])->name('posts.add_comment');
 Route::get('/categorias/{category:slug}',[CategoriaController::class, 'show'])->name('categories.show');
 Route::get('/tags/{tag:name}',[TagController::class, 'show'])->name('tags.show');
+
+
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group( function (){
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+});
 
 require __DIR__.'/auth.php';
