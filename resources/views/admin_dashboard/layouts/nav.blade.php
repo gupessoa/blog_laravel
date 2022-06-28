@@ -13,7 +13,7 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="{{ url('index') }}" target="_blank">
+                    <a href="{{ route('admin.index') }}">
                     <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                         <div class="menu-title">Dashboard</div>
                     </a>
@@ -45,6 +45,40 @@
                         <li> <a href="{{ route('admin.categories.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Nova Categoria</a></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="{{ route('admin.tags.index') }}">
+                    <div class="parent-icon"><i class='bx bx-purchase-tag'></i></div>
+                        <div class="menu-title">Tags</div>
+                    </a>
+                </li>
+
+                <li>
+                   <a href="javascript:;" class="has-arrow">
+                       <div class="parent-icon"><i class='bx bx-comment-dots'></i>
+                       </div>
+                       <div class="menu-title">Comments</div>
+                   </a>
+
+                   <ul>
+                       <li> <a href="{{ route('admin.comments.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos Cometários</a>
+                       </li>
+                       <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novos Comentários</a>
+                       </li>
+                       <hr>
+                       <li>
+                           <a href="javascript:;" class="has-arrow">
+                               <div class="parent-icon"><i class='bx bx-key'></i></div>
+                               <div class="menu-title">Roles</div>
+                           </a>
+                           <ul>
+                               <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>All Roles</a></li>
+                               <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Add New Role</a></li>
+                           </ul>
+                       </li>
+
+                   </ul>
+               </li>
             </ul>
             <!--end navigation-->
         </div>
