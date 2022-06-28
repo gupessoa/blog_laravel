@@ -1,6 +1,16 @@
 @extends('blog.master')
 
-@section('title', 'MeuBlog | Meu Post')
+@section('title', $post->title . ' | MyBlog')
+
+@section('custom_css')
+
+	<style>
+		.class-single .desc img {
+			width: 100%;
+		}
+	</style>
+
+@endsection
 
 @section('content')
     <!-- Declaração uma sessão do site -->
@@ -9,29 +19,12 @@
             <!-- Devido ao H1 ser o titulo principal do site usamos o h2 para outro titulo de importância -->
             <article>
                 <div class="container postContainer">
-                    <img src="{{ asset('storage/'.$post->image->path.'') }}" alt="" title="" class="postMidia">
+                    <img src="{{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '') }}" alt="" title="" class="postMidia">
                     <h2 class="my-4"><a href="">{{ $post->title }}</a></h2>
                     <time datetime="{{ $post->created_at->format('Y/m/d') }}" class="postData">{{ $post->created_at->diffForHumans() }}</time>
                     <div class="postContent">
                         <div>
                             <p>{{ $post->body }}</p>
-{{--                            <p>Eu sou assim....</p>--}}
-{{--                            <p>Eu erro. Eu amo. Eu choro. Eu brinco. Eu sorrio. Eu tenho defeitos. Eu tenho qualidades.--}}
-{{--                                Eu sou mal-humorado, me magoo com facilidade e as vezes sou insuportável, reclamo, xingo,--}}
-{{--                                ignoro, Eu não sou perfeito.</p>--}}
-{{--                            <p>Realmente eu não sou tão doce quanto pensam e nem tão azedo como gostariam.--}}
-{{--                                Sou curioso, desconfiado, temperamental, e em alguns casos, teimoso. Tenho coração Mole,--}}
-{{--                                sangue quente e insisto na mania de acreditar em sonhos, finais felizes e pessoas sinceras.</p>--}}
-{{--                            <p>Comigo é oito ou oitenta, sem meio termos,mais ou menos,--}}
-{{--                                ou é ou não é, não tem meia estrada ou rodeios. Não sei fazer nada pela metade ,--}}
-{{--                                nem de qualquer jeito, não sei amar um pouco, não sei ser meio amigo, lealdade é pra--}}
-{{--                                poucos. Sou assim, simples, intenso.</p>--}}
-{{--                            <p>Não sou para todos... Gosto muito do meu mundinho, Ele é cheio de surpresas,--}}
-{{--                                palavras soltas e cores misturadas. Às vezes tem um céu azul, outras tempestades.--}}
-{{--                                Lá dentro cabem sonhos de todos os tamanhos. Mas não cabe muita gente, todas as pessoas--}}
-{{--                                que estão dentro dele não estão por acaso. São necessárias.</p>--}}
-{{--                            <p>Nem sempre tenho as melhores atitudes, nem sempre faço o que esta certo,--}}
-{{--                                mas o que sai de mim é genuíno.</p>--}}
                             <p class="autor">{{$post->author->name}}</p>
                             <div class="hashtags">
                                 <h4>Hashtag</h4>

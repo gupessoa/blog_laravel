@@ -19,21 +19,13 @@ class AdminPostsController extends Controller
             'body' => 'required',
         ];
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('admin_dashboard.posts.index');
+        return view('admin_dashboard.posts.index', [
+                    'posts' => Post::with('category')->get(),
+                ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin_dashboard.posts.create', [
@@ -41,17 +33,11 @@ class AdminPostsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate($this->rules);
-                $validated['user_id'] = auth()->id();
-                $post = Post::create($validated);
+        $validated['user_id'] = auth()->id();
+        $post = Post::create($validated);
 
         if($request->has('thumbnail'))
         {
@@ -66,6 +52,16 @@ class AdminPostsController extends Controller
                 'path' => $path
             ]);
         }
+
+        $tags = explode(',', $request->input('tags'));
+        $tags_ids = [];
+        foreach($tags as $tag){
+            $tag_ob = Tag::create(['name' => trim($tag)]);
+            $tags_ids[] = $tag_ob->id;
+        }
+
+        if(count($tags_ids) > 0)
+            $post->tags()->sync( $tags_ids );
 
         return redirect()->route('admin.posts.create')->with('success', 'Post criado com sucesso.');
     }
@@ -89,7 +85,19 @@ class AdminPostsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin_dashboard.posts.edit');
+        $tags = '';
+       foreach($post->tags as $key => $tag)
+       {
+           $tags .= $tag->name;
+           if($key !== count($post->tags) - 1)
+               $tags .= ', ';
+       }
+
+        return view('admin_dashboard.posts.edit', [
+            'post' => $post,
+            'tags' => $tags,
+            'categories' => Category::pluck('name', 'id')
+        ]);
     }
 
     /**
@@ -103,7 +111,7 @@ class AdminPostsController extends Controller
     {
         $post = Post::find($id);
 
-        $this->rules['thumbnail'] = 'nullable|file|mimes:jpg,png,webp,svg,jpeg|dimensions:max_width=300,max_height=227';
+        $this->rules['thumbnail'] = 'nullable|file|mimes:jpg,png,webp,svg,jpeg|dimensions:max_width=800,max_height=300';
         $validated = $request->validate($this->rules);
 
         $post->update($validated);
@@ -121,6 +129,21 @@ class AdminPostsController extends Controller
                 'path' => $path
             ]);
         }
+
+        $tags = explode(',', $request->input('tags'));
+                $tags_ids = [];
+                foreach($tags as $tag){
+
+                    $tag_exist = $post->tags()->where('name', trim($tag) )->count();
+                    if($tag_exist == 0) {
+                        $tag_ob = Tag::create(['name' => $tag]);
+                        $tags_ids[] = $tag_ob->id;
+                    }
+                }
+
+                if(count($tags_ids) > 0)
+                    $post->tags()->syncWithoutDetaching( $tags_ids );
+
         return redirect()->route('admin.posts.edit', $post)->with('success', 'Post has been updated.');
     }
 
@@ -132,6 +155,10 @@ class AdminPostsController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
+        $post = Post::find($id);
+        $post->tags()->delete();
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('success', 'Post excluido com sucesso.');
     }
 }

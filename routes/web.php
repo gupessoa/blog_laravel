@@ -40,6 +40,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth', 'isadmin')->group( fu
     Route::post('upload_tinymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
     Route::resource('posts', AdminPostsController::class);
     Route::resource('categories', AdminCategoriesController::class);
+    Route::resource('tags', AdminTagsController::class)->only(['index', 'show', 'destroy']);
 });
 
 require __DIR__.'/auth.php';
