@@ -25,7 +25,7 @@
                     <div class="postContent">
                         <div>
                             <p>{{ $post->body }}</p>
-                            <p class="autor">{{\App\Models\User::find($post->id_user)->name}}</p>
+                            <p class="autor">{{\App\Models\User::find($post->user_id)->name}}</p>
                             <div class="hashtags">
                                 <h4>Hashtag</h4>
                                 <p>
