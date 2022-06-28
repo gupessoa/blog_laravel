@@ -25,12 +25,12 @@
                     <div class="postContent">
                         <div>
                             <p>{{ $post->body }}</p>
-                            <p class="autor">{{$post->author->name}}</p>
+                            <p class="autor">{{\App\Models\User::find($post->user_id)->name}}</p>
                             <div class="hashtags">
                                 <h4>Hashtag</h4>
                                 <p>
                                     @foreach($post->tags as $tag)
-                                        <a href="">#{{$tag->name}}</a>
+                                        <a href="">#{{$tag->nome}}</a>
                                     @endforeach
                                 </p>
                             </div>

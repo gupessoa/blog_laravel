@@ -15,7 +15,7 @@ class Post extends Model
         'excerpt',
         'body',
         'id_user',
-        'id_category'
+        'category_id'
     ];
 
     public function author()

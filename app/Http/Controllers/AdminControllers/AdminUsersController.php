@@ -39,6 +39,7 @@ class AdminUsersController extends Controller
         $validated = $request->validate($this->rules);
         $validated['password'] = Hash::make($request->input('password'));
 
+
         $user = User::create($validated);
 
         if($request->has('image'))
@@ -109,10 +110,6 @@ class AdminUsersController extends Controller
     {
         if($user->id === auth()->id())
             return redirect()->back()->with('error', 'You can not delete your self.');
-
-        User::whereHas('role', function($query){
-                    $query->where('name', 'admin');
-                })->first()->posts()->saveMany( $user->posts );
 
 
         $user->delete();

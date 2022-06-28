@@ -31,7 +31,7 @@
 
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Edit Post: {{ $post->title }}</h5>
+                    <h5 class="card-title">Editar Post: {{ $post->title }}</h5>
                     <hr/>
 
                     <form action="{{ route('admin.posts.update', $post) }}" method='post' enctype='multipart/form-data'>
@@ -43,7 +43,7 @@
                                 <div class="col-lg-12">
                                     <div class="border border-3 p-4 rounded">
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Title</label>
+                                            <label for="inputProductTitle" class="form-label">Titulo</label>
                                             <input type="text" value='{{ old("title", $post->title) }}' name='title' required class="form-control" id="inputProductTitle">
 
                                             @error('title')
@@ -52,7 +52,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Slug</label>
+                                            <label for="inputProductTitle" class="form-label">Slug</label>
                                             <input type="text" value='{{ old("slug", $post->slug) }}' class="form-control" required name='slug' id="inputProductTitle">
 
                                             @error('slug')
@@ -61,7 +61,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Post Excerpt</label>
+                                            <label for="inputProductDescription" class="form-label">Resumo</label>
                                             <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt", $post->excerpt) }}</textarea>
 
                                             @error('excerpt')
@@ -70,7 +70,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Category</label>
+                                            <label for="inputProductTitle" class="form-label">Categoria</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -104,7 +104,7 @@
 
                                                     <div class="card">
                                                         <div class="card-body">
-                                                            <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
+                                                            <label for="inputProductDescription" class="form-label">Post Imagem</label>
                                                             <input id='thumbnail' name='thumbnail' id="file" type="file">
 
                                                             @error('thumbnail')
@@ -135,7 +135,7 @@
                                         </div>
 
                                         <button class='btn btn-primary' type='submit'>Atualizar Post</button>
-                                        <a  class='btn btn-danger' onclick="event.preventDefault();document.getElementById('delete_post_{{ $post->id }}').submit()" href="#">Delete Post</a>
+                                        <a  class='btn btn-danger' onclick="event.preventDefault();document.getElementById('delete_post_{{ $post->id }}').submit()" href="#">Excluir Post</a>
 
 
 

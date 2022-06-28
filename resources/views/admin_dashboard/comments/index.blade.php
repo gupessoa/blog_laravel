@@ -6,13 +6,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Comments</div>
+					<div class="breadcrumb-title pe-3">Comentários</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Comments</li>
+								<li class="breadcrumb-item active" aria-current="page">Todos Comentários</li>
 							</ol>
 						</nav>
 					</div>
@@ -22,20 +22,17 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-								<input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-							</div>
-						  <div class="ms-auto"><a href="{{ route('admin.comments.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New Comment</a></div>
+						  <div class="ms-auto"><a href="{{ route('admin.comments.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Novo Comentário</a></div>
 						</div>
 						<div class="table-responsive">
 							<table class="table mb-0">
 								<thead class="table-light">
 									<tr>
-										<th>Comment#</th>
-										<th>Comment Author</th>
-                                        <th>Comment Body</th>
-                                        <th>View Comment</th>
-										<th>Created at</th>
+										<th>#</th>
+										<th>Autor</th>
+                                        <th>Comentário</th>
+                                        <th>View</th>
+										<th>Criado em</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -55,7 +52,7 @@
 										<td>{{ $comment->user->name }} </td>
                                         <td>{{ \Str::limit($comment->the_comment, 60) }} </td>
                                         <td>
-                                            <a target='_blank' class='btn btn-primary btn-sm' href="{{ route('posts.show', $comment->post->slug) }}#comment_{{ $comment->id }}">View Comment</a>
+                                            <a target='_blank' class='btn btn-primary btn-sm' href="{{ route('posts.show', $comment->post->slug) }}#comment_{{ $comment->id }}">Ver Comentário</a>
                                         </td>
                                         <td>{{ $comment->created_at->diffForHumans() }}</td>
                                         <td>

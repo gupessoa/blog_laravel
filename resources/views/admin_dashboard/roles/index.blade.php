@@ -12,7 +12,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Roles</li>
+								<li class="breadcrumb-item active" aria-current="page">Todas Regras</li>
 							</ol>
 						</nav>
 					</div>
@@ -22,19 +22,16 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-								<input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-							</div>
-						  <div class="ms-auto"><a href="{{ route('admin.roles.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New Role</a></div>
+						  <div class="ms-auto"><a href="{{ route('admin.roles.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Nova Regra</a></div>
 						</div>
 						<div class="table-responsive">
 							<table class="table mb-0">
 								<thead class="table-light">
 									<tr>
-										<th>Role#</th>
-										<th>Role Name</th>
-										<th>Created at</th>
-										<th>Actions</th>
+										<th>#</th>
+										<th>Nome</th>
+										<th>Criada em</th>
+										<th>Ações</th>
 									</tr>
 								</thead>
 								<tbody>

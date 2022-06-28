@@ -12,7 +12,7 @@
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">All Categories</li>
+                            <li class="breadcrumb-item active" aria-current="page">Todas as CategoriaS</li>
                         </ol>
                     </nav>
                 </div>
@@ -21,7 +21,7 @@
 
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New Category</h5>
+                    <h5 class="card-title">Nova Catgeoria</h5>
                     <hr/>
                     <form action="{{ route('admin.categories.store') }}" method='post'>
                         @csrf
@@ -31,7 +31,7 @@
                                 <div class="col-lg-12">
                                     <div class="border border-3 p-4 rounded">
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Category Name</label>
+                                            <label for="inputProductTitle" class="form-label">Nome</label>
                                             <input type="text" value='{{ old("name") }}' name='name' required class="form-control" id="inputProductTitle">
 
                                             @error('name')
@@ -39,14 +39,13 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Category Slug</label>
+                                            <label for="inputProductTitle" class="form-label">Slug</label>
                                             <input type="text" value='{{ old("slug") }}' class="form-control" required name='slug' id="inputProductTitle">
                                             @error('slug')
                                                 <p class='text-danger'>{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <button class='btn btn-primary' type='submit'>Add Category</button>
-
+                                        <button class='btn btn-primary' type='submit'>Adicionar Categoria</button>
                                     </div>
                                 </div>
 

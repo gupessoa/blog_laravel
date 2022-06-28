@@ -19,11 +19,10 @@
                             <h4 class="h4 ml-0">
                                 <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
                             </h4>
-                            {{--                        {{dd($post->author())}}--}}
                             <p>{{ $post->excerpt }}</p>
                             <div class="meta d-flex justify-between">
                                 <div><a href=""><i class="bi bi-calendar"></i> {{ $post->created_at->diffForHumans() }}</a></div>
-                                <div><a href=""><i class="bi bi-person"></i> {{ $post->author->name }}</a></div>
+                                <div><a href=""><i class="bi bi-person"></i> {{\App\Models\User::find($post->user_id)->name}} </a></div>
                                 <div><a href=""><i class="bi bi-chat"></i> {{$post->comments_count}}</a></div>
                             </div>
                         </div>
