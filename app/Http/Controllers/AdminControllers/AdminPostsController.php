@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminControllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -29,14 +30,16 @@ class AdminPostsController extends Controller
     public function create()
     {
         return view('admin_dashboard.posts.create', [
-            'catgeories' => Category::pluck('name', 'id')
+            'categories' => Category::pluck('name', 'id')
         ]);
     }
 
     public function store(Request $request)
     {
+//        dd($request->all());
         $validated = $request->validate($this->rules);
-        $validated['user_id'] = auth()->id();
+        $validated['category_id'] = $request->category_id;
+        $validated['id_user'] = auth()->id();
         $post = Post::create($validated);
 
         if($request->has('thumbnail'))
@@ -85,6 +88,7 @@ class AdminPostsController extends Controller
      */
     public function edit($id)
     {
+        $post = Post::find($id);
         $tags = '';
        foreach($post->tags as $key => $tag)
        {

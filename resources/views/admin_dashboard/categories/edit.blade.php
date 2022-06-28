@@ -14,7 +14,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+                        <li class="breadcrumb-item active" aria-current="page">Editar Categoria</li>
                     </ol>
                 </nav>
             </div>
@@ -23,7 +23,7 @@
 
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Edit Category: {{ $category->name }}</h5>
+                <h5 class="card-title">Editar Categoria: {{ $category->name }}</h5>
                 <hr/>
 
                 <form action="{{ route('admin.categories.update', $category) }}" method='post'>
@@ -35,7 +35,7 @@
                             <div class="col-lg-12">
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Category Name</label>
+                                        <label for="inputProductTitle" class="form-label">Nome</label>
                                         <input type="text" value='{{ old("name", $category->name) }}' name='name' required class="form-control" id="inputProductTitle">
 
                                         @error('title')
@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Category Slug</label>
+                                        <label for="inputProductTitle" class="form-label">lug</label>
                                         <input type="text" value='{{ old("slug", $category->slug) }}' class="form-control" required name='slug' id="inputProductTitle">
 
                                         @error('slug')
@@ -52,12 +52,12 @@
                                         @enderror
                                     </div>
 
-                                    <button class='btn btn-primary' type='submit'>Update Category</button>
+                                    <button class='btn btn-primary' type='submit'>Atualizar</button>
 
                                     <a
                                     class='btn btn-danger'
                                     onclick="event.preventDefault();document.getElementById('delete_category_{{ $category->id }}').submit()"
-                                    href="#">Delete Category</a>
+                                    href="#">Excluir</a>
 
                                 </div>
                             </div>

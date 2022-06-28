@@ -23,7 +23,7 @@
                             <p>{{ $post->excerpt }}</p>
                             <div class="meta d-flex justify-between">
                                 <div><a href=""><i class="bi bi-calendar"></i> {{ $post->created_at->diffForHumans() }}</a></div>
-                                <div><a href=""><i class="bi bi-person"></i> {{ $post->author->name }}</a></div>
+                                <div><a href=""><i class="bi bi-person"></i> {{\App\Models\User::find($post->id_user)->name}} </a></div>
                                 <div><a href=""><i class="bi bi-chat"></i> {{$post->comments_count}}</a></div>
                             </div>
                         </div>

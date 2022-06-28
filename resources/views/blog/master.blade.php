@@ -40,13 +40,13 @@
             <div class="collapse navbar-collapse show" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('blog.home') }}">Blog</a>
+                        <a class="nav-link {{ (request()->is('home')) || (request()->is('blog.home')) ? 'active' : '' }}" aria-current="page" href="{{ route('blog.home') }}">Blog</a>
                     </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="{{ route('blog.escritores') }}">Escritores</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.escritores') }}">Escritores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('blog.contato.create') }}">Contato</a>
+                        <a class="nav-link {{ (request()->segment(1) == 'contato') ? 'active' : '' }}" href="{{ route('blog.contato.create') }}">Contato</a>
                     </li>
 
                 </ul>

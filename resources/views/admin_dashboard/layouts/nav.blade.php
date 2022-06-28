@@ -2,7 +2,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="{{asset('admin_dashboard_assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+                    <img src="{{asset('img/admIcon.png')}}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
                     <h4 class="logo-text">MYBLOG</h4>
@@ -12,12 +12,6 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
-                <li>
-                    <a href="{{ route('admin.index') }}">
-                    <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
-                        <div class="menu-title">Dashboard</div>
-                    </a>
-                </li>
 
                 <li>
                     <a href="javascript:;" class="has-arrow">
@@ -38,7 +32,7 @@
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-menu'></i></div>
-                        <div class="menu-title">Categories</div>
+                        <div class="menu-title">Categorias</div>
                     </a>
                     <ul>
                         <li> <a href="{{ route('admin.categories.index') }}"><i class="bx bx-right-arrow-alt"></i>Todas Categorias</a></li>
@@ -57,7 +51,7 @@
                    <a href="javascript:;" class="has-arrow">
                        <div class="parent-icon"><i class='bx bx-comment-dots'></i>
                        </div>
-                       <div class="menu-title">Comments</div>
+                       <div class="menu-title">Comentários</div>
                    </a>
 
                    <ul>
@@ -65,41 +59,40 @@
                        </li>
                        <li> <a href="{{ route('admin.comments.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novos Comentários</a>
                        </li>
-                       <hr>
-                       <li>
-                           <a href="javascript:;" class="has-arrow">
-                               <div class="parent-icon"><i class='bx bx-key'></i></div>
-                               <div class="menu-title">Roles</div>
-                           </a>
-                           <ul>
-                               <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>Todas as Regras</a></li>
-                               <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novas Regras</a></li>
-                           </ul>
-                       </li>
-                       <li>
-                           <a href="javascript:;" class="has-arrow">
-                               <div class="parent-icon"><i class='bx bx-user'></i>
-                               </div>
-                               <div class="menu-title">Usuários</div>
-                           </a>
-
-                           <ul>
-                               <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos Usuários</a>
-                               </li>
-                               <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novos Usuários</a>
-                               </li>
-
-                           </ul>
-                       </li>
-
-                       <li>
-                           <a href="{{ route('admin.contacts') }}">
-                           <div class="parent-icon"><i class='bx bx-mail-send'></i></div>
-                               <div class="menu-title">Contacts</div>
-                           </a>
-                       </li>
-
                    </ul>
+                    <hr>
+                   <li>
+                       <a href="javascript:;" class="has-arrow">
+                           <div class="parent-icon"><i class='bx bx-key'></i></div>
+                           <div class="menu-title">Regras</div>
+                       </a>
+                       <ul>
+                           <li> <a href="{{ route('admin.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>Todas as Regras</a></li>
+                           <li> <a href="{{ route('admin.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novas Regras</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="javascript:;" class="has-arrow">
+                           <div class="parent-icon"><i class='bx bx-user'></i>
+                           </div>
+                           <div class="menu-title">Usuários</div>
+                       </a>
+
+                       <ul>
+                           <li> <a href="{{ route('admin.users.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos Usuários</a>
+                           </li>
+                           <li> <a href="{{ route('admin.users.create') }}"><i class="bx bx-right-arrow-alt"></i>Adicionar Novos Usuários</a>
+                           </li>
+
+                       </ul>
+                   </li>
+
+                   <li>
+                       <a href="{{ route('admin.contacts') }}">
+                       <div class="parent-icon"><i class='bx bx-mail-send'></i></div>
+                           <div class="menu-title">Contatos</div>
+                       </a>
+                   </li>
                </li>
             </ul>
             <!--end navigation-->

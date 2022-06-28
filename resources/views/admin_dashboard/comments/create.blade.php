@@ -13,13 +13,13 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Comments</div>
+                <div class="breadcrumb-title pe-3">Comentários</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Comment</li>
+                            <li class="breadcrumb-item active" aria-current="page">Comentário</li>
                         </ol>
                     </nav>
                 </div>
@@ -28,7 +28,7 @@
 
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New Comment</h5>
+                    <h5 class="card-title">Novo Comentário</h5>
                     <hr/>
 
                     <form action="{{ route('admin.comments.store') }}" method='post'>
@@ -40,7 +40,7 @@
                                     <div class="border border-3 p-4 rounded">
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Related Post</label>
+                                            <label for="inputProductTitle" class="form-label">Posts Relacionados</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -62,7 +62,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Post Comment</label>
+                                            <label for="inputProductDescription" class="form-label">Comentário</label>
                                             <textarea name='the_comment'  id='post_comment' class="form-control" id="inputProductDescription" rows="3">{{ old("the_comment") }}</textarea>
 
                                             @error('the_comment')
@@ -70,7 +70,7 @@
                                             @enderror
                                         </div>
 
-                                        <button class='btn btn-primary' type='submit'>Add Comment</button>
+                                        <button class='btn btn-primary' type='submit'>Adicionar Novo Comentário</button>
 
                                     </div>
                                 </div>

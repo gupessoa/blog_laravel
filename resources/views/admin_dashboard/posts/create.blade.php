@@ -1,4 +1,3 @@
-
 @extends("admin_dashboard.layouts.app")
 
 @section("style")
@@ -22,7 +21,7 @@
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
-                            <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Posts</li>
                         </ol>
@@ -33,7 +32,7 @@
 
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New Post</h5>
+                    <h5 class="card-title">Adicionar Novo Post</h5>
                     <hr/>
 
                     <form action="{{ route('admin.posts.store') }}" method='post' enctype='multipart/form-data'>
@@ -44,7 +43,7 @@
                                 <div class="col-lg-12">
                                     <div class="border border-3 p-4 rounded">
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Title</label>
+                                            <label for="inputProductTitle" class="form-label">Título</label>
                                             <input type="text" value='{{ old("title") }}' name='title' required class="form-control" id="inputProductTitle">
 
                                             @error('title')
@@ -53,7 +52,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Slug</label>
+                                            <label for="inputProductTitle" class="form-label">Slug</label>
                                             <input type="text" value='{{ old("slug") }}' class="form-control" required name='slug' id="inputProductTitle">
 
                                             @error('slug')
@@ -62,7 +61,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Post Excerpt</label>
+                                            <label for="inputProductDescription" class="form-label">Resumo</label>
                                             <textarea required class="form-control" name='excerpt' id="inputProductDescription" rows="3">{{ old("excerpt") }}</textarea>
 
                                             @error('excerpt')
@@ -71,7 +70,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">Post Category</label>
+                                            <label for="inputProductTitle" class="form-label">Categoria</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -93,14 +92,14 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Post Tags</label>
+                                            <label class="form-label">Tags</label>
                                             <input type="text" class="form-control" name='tags' data-role="tagsinput">
                                         </div>
 
                                         <div class="mb-3">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <label for="inputProductDescription" class="form-label">Post Thumbnail</label>
+                                                    <label for="inputProductDescription" class="form-label">Post Imagem</label>
                                                     <input id='thumbnail' required name='thumbnail' id="file" type="file">
 
                                                     @error('thumbnail')
@@ -112,7 +111,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductDescription" class="form-label">Post Content</label>
+                                            <label for="inputProductDescription" class="form-label">Conteúdo</label>
                                             <textarea name='body'  id='post_content' class="form-control" id="inputProductDescription" rows="3">{{ old("body") }}</textarea>
 
                                             @error('body')
@@ -120,7 +119,7 @@
                                             @enderror
                                         </div>
 
-                                        <button class='btn btn-primary' type='submit'>Add Post</button>
+                                        <button class='btn btn-primary' type='submit'>Adicionar Post</button>
 
                                     </div>
                                 </div>

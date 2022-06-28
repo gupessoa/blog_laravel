@@ -22,22 +22,16 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-								<input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-							</div>
-						  <div class="ms-auto"><a href="{{ route('admin.posts.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New Post</a></div>
+						  <div class="ms-auto"><a href="{{ route('admin.posts.create') }}" class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Adiconar Novo Post</a></div>
 						</div>
 						<div class="table-responsive">
 							<table class="table mb-0">
 								<thead class="table-light">
 									<tr>
 										<th>Post#</th>
-										<th>Post Title</th>
-										<th>Post Excerpt</th>
-										<th>Category</th>
-										<th>Created at</th>
-                                        <th>Status</th>
-										<th>Views</th>
+										<th>Titulo</th>
+										<th>Categoria</th>
+                                        <th>Views</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -55,15 +49,7 @@
 											</div>
 										</td>
 										<td>{{ $post->title }} </td>
-
-										<td>{{ $post->excerpt }}</td>
                                         <td>{{ $post->category->name }}</td>
-                                        <td>{{ $post->created_at->diffForHumans() }}</td>
-
-
-                                        <td>
-                                            <div class="badge rounded-pill @if($post->status === 'published') {{ 'text-info bg-light-info' }} @elseif($post->status === 'draft') {{ 'text-warning bg-light-warning' }} @else {{ 'text-danger bg-light-danger' }} @endif p-2 text-uppercase px-3"><i class='bx bxs-circle align-middle me-1'></i>{{ $post->status }}</div>
-                                        </td>
 
                                         <td>{{ $post->views }}</td>
 

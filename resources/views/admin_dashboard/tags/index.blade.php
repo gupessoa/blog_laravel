@@ -12,7 +12,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Tags</li>
+								<li class="breadcrumb-item active" aria-current="page">Todas Tags</li>
 							</ol>
 						</nav>
 					</div>
@@ -22,19 +22,16 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="d-lg-flex align-items-center mb-4 gap-3">
-							<div class="position-relative">
-								<input type="text" class="form-control ps-5 radius-30" placeholder="Search Order"> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
-							</div>
 						</div>
 						<div class="table-responsive">
 							<table class="table mb-0">
 								<thead class="table-light">
 									<tr>
-										<th>Tag#</th>
-										<th>Tag Name</th>
-                                        <th>Related Posts</th>
-										<th>Created at</th>
-										<th>Actions</th>
+										<th>#</th>
+										<th>Nome</th>
+                                        <th>Posts Relacionados</th>
+										<th>Criado em</th>
+										<th>Ações</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -52,7 +49,7 @@
 										</td>
 										<td>{{ $tag->name }} </td>
                                         <td>
-                                            <a class='btn btn-primary btn-sm' href="{{ route('admin.tags.show', $tag) }}">Related Posts</a>
+                                            <a class='btn btn-primary btn-sm' href="{{ route('admin.tags.show', $tag) }}">Posts Relacionados</a>
                                         </td>
                                         <td>{{ $tag->created_at->diffForHumans() }}</td>
                                         <td>

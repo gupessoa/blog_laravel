@@ -14,13 +14,13 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Users</div>
+                <div class="breadcrumb-title pe-3">Usuários</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit User: {{ $user->name }}</li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar Usuário: {{ $user->name }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -29,7 +29,7 @@
 
             <div class="card">
                 <div class="card-body p-4">
-                    <h5 class="card-title">Add New User</h5>
+                    <h5 class="card-title">Adicionar Usuário</h5>
                     <hr/>
 
                     <form action="{{ route('admin.users.update', $user) }}" method='post' enctype='multipart/form-data'>
@@ -42,7 +42,7 @@
                                     <div class="border border-3 p-4 rounded">
 
                                         <div class="mb-3">
-                                            <label for="input_name" class="form-label">Name</label>
+                                            <label for="input_name" class="form-label">Nome</label>
                                             <input name='name' type='text' class="form-control" id="input_name" value='{{ old("name", $user->name) }}'>
 
                                             @error('name')
@@ -60,7 +60,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="input_password" class="form-label">Password</label>
+                                            <label for="input_password" class="form-label">Senha</label>
                                             <input name='password' type='password' class="form-control" id="input_password">
 
                                             @error('password')
@@ -71,7 +71,7 @@
                                         <div class='row'>
                                             <div class='col-md-8'>
                                                 <div class="mb-3">
-                                                    <label for="input_image" class="form-label">Image</label>
+                                                    <label for="input_image" class="form-label">Foto</label>
                                                     <input name='image' type='file' class="form-control" id="input_image">
 
                                                     @error('image')
@@ -87,7 +87,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="inputProductTitle" class="form-label">User Role</label>
+                                            <label for="inputProductTitle" class="form-label">Regra de Usuário</label>
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div class="rounded">
@@ -108,7 +108,7 @@
                                             </div>
                                         </div>
 
-                                        <button class='btn btn-primary' type='submit'>Update User</button>
+                                        <button class='btn btn-primary' type='submit'>Atualizar</button>
 
                                         <a
                                         onclick='event.preventDefault(); document.getElementById("delete_user_{{ $user->id }}").submit()'

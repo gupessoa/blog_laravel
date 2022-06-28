@@ -25,7 +25,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Roles</li>
+                        <li class="breadcrumb-item active" aria-current="page">Todas Regras</li>
                     </ol>
                 </nav>
             </div>
@@ -46,7 +46,7 @@
                             <div class="col-lg-12">
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Role Name</label>
+                                        <label for="inputProductTitle" class="form-label">Nome</label>
                                         <input type="text" value='{{ old("name", $role->name) }}' name='name' required class="form-control" id="inputProductTitle">
 
                                         @error('name')
@@ -55,7 +55,7 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="inputProductTitle" class="form-label">Role Permissions</label>
+                                        <label for="inputProductTitle" class="form-label">Permissão</label>
 
                                         <div class='row'>
                                             @php
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
 
-                                    <button class='btn btn-primary' type='submit'>Update Role</button>
+                                    <button class='btn btn-primary' type='submit'>Atualizar</button>
 
                                     <a
                                     class='btn btn-danger'
