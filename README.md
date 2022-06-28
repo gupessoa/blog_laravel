@@ -23,11 +23,11 @@ Este tarbalho ten por objetivo o desenvolvimento de uma aplicação web, um blog
 7. Ainda no terminal rode o comando php artisan db:seed para que seja populado o banco e deste forma seja criado uma massa de dados de exemplo.
 8. Ainda no terminal, rode o comando php artisan serve para subir a aplicação e clique no link que mostrará na tela
 
-para acessar o painel administrativo:
->127.0.0.1:8000/admin
-
 Para ter acesso ao Painel administrativo do site é possível logar com um usuário padrão que é criado apóes executar os passos acima:
 >Email: admin@admin.com
 >Senha: password
+
+para acessar o painel administrativo:
+>127.0.0.1:8000/admin
 
 OBS.:O memso usuário pode ser uzado para adicionar comentarios aos posts
