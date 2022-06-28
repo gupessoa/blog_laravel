@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Route;
 
 class DatabaseSeeder extends Seeder
 {
