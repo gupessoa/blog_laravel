@@ -5,7 +5,7 @@
     @foreach($recentPosts as $recent_post)
         <div class="f-blog">
             <a href="{{ route('posts.show', $recent_post) }}" class="f-blog-link">
-                <img class="f-blog-img" src="{{ asset('storage/'.$recent_post->image->path.'') }}" alt="">
+                <img class="f-blog-img" src="{{ asset($recent_post->image ? 'storage/' . $recent_post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '') }}" alt="">
             </a>
             <div class="desc">
                 <p class="admin"><span>{{ $recent_post->created_at->diffForHumans() }}</span></p>
