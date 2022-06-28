@@ -9,6 +9,11 @@ class CheckPermission
 {
     public function handle(Request $request, Closure $next)
         {
+
+            // admin tem permission para tudo
+            if(auth()->user()->role->name === 'admin')
+                return $next($request);
+
             // 1- pegar a rota
             $route_name = $request->route()->getName();
             // 2- pegar a permissão para o usuário que esta autenticado
